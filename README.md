@@ -13,4 +13,4 @@ COPY PASTA
 
 python3 -c "from api import *; apiParse('https://jsonplaceholder.typicode.com/todos/1', 'title', 'id', 'completed', keys=True)"
 
-python3 -c "from api import *; apifileParse('filename.txt', keys=True, arg='title')"
+python3 -c "from api import *; apifileParse('filename.txt', 'title', 'id', 'completed', keys=True)"

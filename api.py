@@ -2,7 +2,7 @@ import requests
 import pprint
 import json
 
-def apiParse(url, arg=None, keys=False):
+def apiParse(url, *args, keys=False):
     try:
         req = requests.get(url)
         api_page = req.content
@@ -12,12 +12,12 @@ def apiParse(url, arg=None, keys=False):
         if keys == False:
         	pass
         else:
-            print("Keys:", requested_api.keys())
+            print("Keys:", [key for key in requested_api.keys()])
 
-        if not arg:
+        if not args:
             pprint.pprint(requested_api)
         else:
-            pprint.pprint(requested_api[arg])
+            pprint.pprint([requested_api[arguments] for arguments in args])
 
     except Exception as error:
         print(error)

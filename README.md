@@ -11,6 +11,6 @@ Filename "for apifileParse" controls well the filename of the file you would lik
 
 COPY PASTA
 
-python3 -c "from api import *; apiParse('https://jsonplaceholder.typicode.com/todos/1', "title", "id", "completed", keys=True)"
+python3 -c "from api import *; apiParse('https://jsonplaceholder.typicode.com/todos/1', 'title', 'id', 'completed', keys=True)"
 
 python3 -c "from api import *; apifileParse('filename.txt', keys=True, arg='title')"

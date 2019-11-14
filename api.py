@@ -22,19 +22,19 @@ def apiParse(url, *args, keys=False):
     except Exception as error:
         print(error)
 
-def apifileParse(filename, arg=None, keys=False):
+def apifileParse(filename, *args, keys=False):
     try:
         with open(filename, "r") as filereader:
             json_data = json.loads(filereader.read())
             if keys == False:
                 pass
             else:
-                print("Keys:", json_data.keys())
+                print("Keys:", [key for key in json_data.keys()])
             
-            if not arg:
+            if not args:
                 pprint.pprint(json_data)
             else:
-                pprint.pprint(json_data[arg])
+                pprint.pprint([json_data[arguments] for arguments in args])
             filereader.close()
     
     except Exception as fileerror:

@@ -1,11 +1,6 @@
-
 {
-
-"Identity" : {
-
-        "Author" : "Cru1seControl",
-        "Email"  : "Cru1seControl.loot@gmail.com",
-        "About"  : "",
-        "ID"     : "404 N0T FOUND",
-    }
+  "Author": "Cru1seControl",
+  "Email": "Cru1seControl.loot@gmail.com",
+  "About": "404 NOT FOUND",
+  "Extra": "Json is love Json is life but java is death & John Doe is a good username"
 }

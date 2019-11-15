@@ -26,7 +26,7 @@ def apiParse(url, *args, indexing=None, keys=False):
     except Exception as error:
         print(error)
 
-def apifileParse(filename, *args, keys=False):
+def apifileParse(filename, *args, indexing=None, keys=False):
     try:
         with open(filename, "r") as filereader:
             json_data = json.loads(filereader.read())
@@ -34,12 +34,16 @@ def apifileParse(filename, *args, keys=False):
                 pass
             else:
                 print("Keys:", [key for key in json_data.keys()])
-            
+
             if not args:
                 pprint.pprint(json_data)
+
+            elif indexing:
+                pprint.pprint([json_data[arguments][indexing] for arguments in args])
+
             else:
                 pprint.pprint([json_data[arguments] for arguments in args])
             filereader.close()
-    
+
     except Exception as fileerror:
         print(fileerror)

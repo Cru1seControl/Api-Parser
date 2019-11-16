@@ -2,48 +2,44 @@ import requests
 import pprint
 import json
 
-def apiParse(url, *args, indexing=None, keys=False):
+def apiKeys(obj):
+    try:
+        return obj.keys()
+
+    except Exception:
+        return obj[0].keys()
+
+def apiDoc(url):
     try:
         req = requests.get(url)
         api_page = req.content
-
         requested_api = json.loads(api_page)
 
-        if keys == False:
-                pass
-        else:
-            print("Keys:", [key for key in requested_api.keys()])
+        return requested_api
 
-        if not args:
-            pprint.pprint(requested_api)
+    except Exception as apiDocerror:
+        print(apiDocerror)
 
-        elif indexing:
-            pprint.pprint([requested_api[arguments][indexing] for arguments in args])
-
-        else:
-            pprint.pprint([requested_api[arguments] for arguments in args])
-
-    except Exception as error:
-        print(error)
-
-def apifileParse(filename, *args, indexing=None, keys=False):
+def apiIndex(obj, *args, indexing):
     try:
-        with open(filename, "r") as filereader:
-            json_data = json.loads(filereader.read())
-            if keys == False:
-                pass
-            else:
-                print("Keys:", [key for key in json_data.keys()])
 
-            if not args:
-                pprint.pprint(json_data)
+        if indexing:
 
-            elif indexing:
-                pprint.pprint([json_data[arguments][indexing] for arguments in args])
+            return [obj[arguments][indexing] for arguments in args]
+        else:
+            return [obj[arguments] for arguments in args]
 
-            else:
-                pprint.pprint([json_data[arguments] for arguments in args])
-            filereader.close()
+    except Exception as apiIndexerror:
+        print(apiIndexerror)
 
-    except Exception as fileerror:
-        print(fileerror)
+def apiFile(filename, *args, indexing=None):
+    with open(filename, "r") as fileout:
+        json_data = json.loads(fileout.read())
+
+        if args and indexing:
+            return [json_data[arguments][indexing] for arguments in args]
+
+        elif not args or indexing:
+            return json_data
+        else:
+            return [json_data[arguments] for arguments in args]

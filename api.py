@@ -45,3 +45,11 @@ def apiFile(filename, *args, indexing=None):
             return json_data
         else:
             return [json_data[arguments] for arguments in args]
+
+def apiConv(dictionary, sort=True, indent=4):
+    try:
+        json_encoded = json.dumps(dictionary, sort_keys=sort, indent=indent)
+        return json_encoded
+
+    except Exception as apiConverror:
+        print(apiConverror)

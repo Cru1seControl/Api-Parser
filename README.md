@@ -24,4 +24,4 @@ print(apiIndex(Document, "USD", indexing="15m"))
 
 Document = apiDoc("https://blockchain.info/ticker")
 
-print(apiFile("api-example.json", "USD", indexing="15m"))
+print(apiFile("api-example.json", "Example", indexing="Email"))

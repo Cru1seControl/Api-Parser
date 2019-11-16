@@ -1,6 +1,9 @@
 import requests
 import json
 
+__author__ = "Cru1seControl"
+__version__ = 1.4
+
 def apiKeys(obj):
     try:
         return obj.keys()

@@ -15,4 +15,4 @@ python3 -c "from api import *; apiParse('https://jsonplaceholder.typicode.com/to
 
 python3 -c "from api import *; apiParse('https://blockchain.info/ticker', 'USD', 'AUD', indexing='15m', keys=True)"
 
-python3 -c "from api import *; apifileParse('filename.txt', 'title', 'id', 'completed', keys=True)"
+python3 -c "from api import *; apifileParse('api-example.json', 'Example', indexing='Author', keys=True)"

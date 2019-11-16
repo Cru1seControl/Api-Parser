@@ -19,7 +19,7 @@ def apiDoc(url):
     except Exception as apiDocerror:
         print(apiDocerror)
 
-def apiIndex(obj, *args, indexing):
+def apiIndex(obj, *args, indexing=None):
     try:
 
         if indexing:

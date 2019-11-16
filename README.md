@@ -3,16 +3,25 @@
 
 Usage
 
-from api import *,
-Keys controls if you would like the dictionary keys to be printed,
-Args controls what arguments out of the dictionary to be printed otherwise All,
-Indexing allows you to access dictionaries inside dictionaries for better parsing,
-Filename "for apifileParse" controls the filename of the file you would like to parse.
+apiDoc and apiFile are your base handlers for all operations. The examples below show this function, make a new Document and then apply one of the other objects such as apiKeys to the Document.
 
-COPY PASTA
+# Examples
+from api import *
 
-python3 -c "from api import *; apiParse('https://jsonplaceholder.typicode.com/todos/1', 'title', 'id', 'completed', keys=True)"
+#Document and key printing
 
-python3 -c "from api import *; apiParse('https://blockchain.info/ticker', 'USD', 'AUD', indexing='15m', keys=True)"
+Document = apiDoc("https://blockchain.info/ticker")
 
-python3 -c "from api import *; apifileParse('api-example.json', 'Example', indexing='Author', keys=True)"
+print(apiKeys(Document))
+
+#Index of document
+
+Document = apiDoc("https://blockchain.info/ticker")
+
+print(apiIndex(Document, "USD", indexing="15m"))
+
+#Document file parsing
+
+Document = apiDoc("https://blockchain.info/ticker")
+
+print(apiFile("ticker", "USD", indexing="15m"))

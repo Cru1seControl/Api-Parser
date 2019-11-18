@@ -34,17 +34,15 @@ def apiIndex(obj, *args, indexing=None):
     except Exception as apiIndexerror:
         print(apiIndexerror)
 
-def apiFile(filename, *args, indexing=None):
-    with open(filename, "r") as fileout:
-        json_data = json.loads(fileout.read())
+def apiFile(filename):
+    try:
+        with open(filename, "r") as fileout:
+            json_data = json.loads(fileout.read())
 
-        if args and indexing:
-            return [json_data[arguments][indexing] for arguments in args]
-
-        elif not args or indexing:
             return json_data
-        else:
-            return [json_data[arguments] for arguments in args]
+    
+    except Exception as fileerror:
+        print(fileerror)
 
 def apiConv(dictionary, sort=True, indent=4):
     try:

@@ -45,10 +45,16 @@ def apiFile(filename):
     except Exception as fileerror:
         print(fileerror)
 
-def apiConv(dictionary, sort=True, indent=4):
+def apiConv(dictionary, writeout=False, sort=True, indent=4):
     try:
         json_encoded = json.dumps(dictionary, sort_keys=sort, indent=indent)
-        return json_encoded
+        if writeout == False:
+
+            return json_encoded
+        else:
+            with open("json-output.json", "w") as writeout:
+                writeout.write(json_encoded)
+                writeout.close()
 
     except Exception as apiConverror:
         print(apiConverror)

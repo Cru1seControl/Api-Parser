@@ -5,23 +5,21 @@ Usage
 
 apiDoc and apiFile are your base handlers for all operations. The examples below show this function, make a new Document and then apply one of the other objects such as apiKeys to the Document.
 
+# Dependencies
+- import requests
+- import json
+
 # Examples
 from api import *
 
-#Document and key printing
+**Document and key printing**
+- Document = apiDoc("https://blockchain.info/ticker")
+- print(apiKeys(Document))
 
-Document = apiDoc("https://blockchain.info/ticker")
+**Index of document**
+- Document = apiDoc("https://blockchain.info/ticker")
+- print(apiIndex(Document, "USD", indexing="15m"))
 
-print(apiKeys(Document))
-
-#Index of document
-
-Document = apiDoc("https://blockchain.info/ticker")
-
-print(apiIndex(Document, "USD", indexing="15m"))
-
-#Document file parsing
-
-Document = apiFile("api-example.json")
-
-print(apiFile(Document, "Example", indexing="Email"))
+**Document file parsing**
+- Document = apiFile("api-example.json")
+- print(apiFile(Document, "Example", indexing="Email"))

@@ -1,4 +1,5 @@
 import requests
+import socket
 import json
 
 __author__ = "Cru1seControl"
@@ -47,14 +48,31 @@ def apiFile(filename):
 
 def apiConv(dictionary, writeout=False, sort=True, indent=4):
     try:
-        json_encoded = json.dumps(dictionary, sort_keys=sort, indent=indent)
+        json_formatted = json.dumps(dictionary, sort_keys=sort, indent=indent)
         if writeout == False:
 
-            return json_encoded
+            return json_formatted
         else:
             with open("json-output.json", "w") as writeout:
-                writeout.write(json_encoded)
+                writeout.write(json_formatted)
                 writeout.close()
 
     except Exception as apiConverror:
         print(apiConverror)
+
+def apiHost(address, port, document):
+    sockObj = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    sockObj.bind((address, port))
+    sockObj.listen(10)
+
+    while True:
+        client, addr = sockObj.accept()
+        data = client.recv(4096)
+        with open(document, "r") as index:
+            info = index.read()
+            client.send(b"HTTP/1.0 200 OK\r\n\r\n")
+            client.send(info.encode("ascii"))
+
+        print(addr[0], addr[1])
+
+    client.close()

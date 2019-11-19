@@ -2,14 +2,14 @@ import requests
 import json
 
 __author__ = "Cru1seControl"
-__version__ = 1.4
+__version__ = 1.5
 
 def apiKeys(obj):
     try:
         return obj.keys()
 
-    except Exception:
-        return obj[0].keys()
+    except Exception as keyserror:
+        print(keyserror)
 
 def apiDoc(url):
     try:
@@ -26,10 +26,11 @@ def apiIndex(obj, *args, indexing=None):
     try:
 
         if indexing:
-
-            return [obj[arguments][indexing] for arguments in args]
+            for arguments in args:
+                return obj[arguments][indexing]
         else:
-            return [obj[arguments] for arguments in args]
+            for arguments in args:
+                return obj[arguments]
 
     except Exception as apiIndexerror:
         print(apiIndexerror)

@@ -5,6 +5,10 @@ Usage
 
 apiDoc and apiFile are your base handlers for all operations. The examples below show this function, make a new Document and then apply one of the other objects such as apiKeys to the Document.
 
+# Dependencies
+- import requests
+- import json
+
 # Examples
 from api import *
 

@@ -7,6 +7,7 @@ apiDoc and apiFile are your base handlers for all operations. The examples below
 
 # Dependencies
 - import requests
+- import socket
 - import json
 
 # Examples

@@ -1,9 +1,9 @@
 # Api-Parser
 *Simple API parser written in python*
 
-Usage
+from api import *
 
-*apiDoc* and *apiFile* are your base handlers for all operations. The examples below show this function, make a new Document and then apply one of the other objects such as *apiKeys* to the Document. Creating json tables can be done with *apiConv* and then can be exported to a local file or printed as a string.
+*apiDoc*, *apiFile* & *apiConv* are your base handlers for all operations. The examples below show these functions, make a new Document and then apply one of the other objects such as *apiKeys* or *apiIndex* to the Document. Creating json tables can be done with *apiConv* and then can be exported to a local file or returned as a string.
 
 # Dependencies
 ```
@@ -13,7 +13,6 @@ import json
 ```
 
 # Examples
-from api import *
 
 **Document and key printing**
 - Document = apiDoc("https://blockchain.info/ticker")

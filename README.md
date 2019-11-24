@@ -33,3 +33,4 @@ from api import *
 
 **Host document**
 - apiHost("127.0.0.1", 8080, "api-example.json")
+- curl / wget http://127.0.0.1:8080/ for example testing

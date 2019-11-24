@@ -28,3 +28,8 @@ from api import *
 **Json table conversion**
 - Dictionary = {"Example": {"Author": "Cru1seControl", "Email": "Cru1seControl.loot@gmail.com"}}
 - apiConv(Dictionary, writeout=True, sort=True, indent=4)
+
+# Experimental Functions
+
+**Host document**
+- apiHost("127.0.0.1", 8080, "api-example.json")

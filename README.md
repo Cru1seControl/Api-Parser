@@ -3,12 +3,14 @@
 
 Usage
 
-apiDoc and apiFile are your base handlers for all operations. The examples below show this function, make a new Document and then apply one of the other objects such as apiKeys to the Document. Creating json tables can be done with apiConv and then can be exported to a local file or printed as a string.
+*apiDoc* and *apiFile* are your base handlers for all operations. The examples below show this function, make a new Document and then apply one of the other objects such as *apiKeys* to the Document. Creating json tables can be done with *apiConv* and then can be exported to a local file or printed as a string.
 
 # Dependencies
-- import requests
-- import socket
-- import json
+```
+import requests
+import socket
+import json
+```
 
 # Examples
 from api import *
@@ -33,4 +35,6 @@ from api import *
 
 **Host document**
 - apiHost("127.0.0.1", 8080, "api-example.json")
-- curl / wget http://127.0.0.1:8080/ for example testing
+```
+$ curl http://127.0.0.1:8080/
+```

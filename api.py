@@ -3,7 +3,7 @@ import socket
 import json
 
 __author__ = "Cru1seControl"
-__version__ = 1.1
+__version__ = 1.0
 
 def apiKeys(obj):
     try:

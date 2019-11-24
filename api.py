@@ -62,6 +62,8 @@ def apiConv(dictionary, writeout=False, sort=True, indent=4):
 
 def apiHost(address, port, document):
     sockObj = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    sockObj.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+    
     sockObj.bind((address, port))
     sockObj.listen(10)
 

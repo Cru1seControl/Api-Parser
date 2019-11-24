@@ -7,7 +7,7 @@ __version__ = 1.5
 
 def apiKeys(obj):
     try:
-        return obj.keys()
+        return [key for key in obj.keys()]
 
     except Exception as keyserror:
         print(keyserror)

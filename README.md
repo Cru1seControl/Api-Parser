@@ -3,7 +3,7 @@
 
 Usage
 
-apiDoc and apiFile are your base handlers for all operations. The examples below show this function, make a new Document and then apply one of the other objects such as apiKeys to the Document.
+apiDoc and apiFile are your base handlers for all operations. The examples below show this function, make a new Document and then apply one of the other objects such as apiKeys to the Document. Creating json tables can be done with apiConv and then can be exported to a local file or printed as a string.
 
 # Dependencies
 - import requests
@@ -24,3 +24,7 @@ from api import *
 **Document file parsing**
 - Document = apiFile("api-example.json")
 - print(apiFile(Document, "Example", indexing="Email"))
+
+**Json table conversion**
+- Dictionary = {"Example": {"Author": "Cru1seControl", "Email": "Cru1seControl.loot@gmail.com"}}
+- apiConv(Dictionary, writeout=True, sort=True, indent=4)

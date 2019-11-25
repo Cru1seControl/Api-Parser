@@ -63,18 +63,24 @@ def apiConv(dictionary, writeout=False, sort=True, indent=4):
 def apiHost(address, port, document):
     sockObj = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     sockObj.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-    
+
     sockObj.bind((address, port))
     sockObj.listen(10)
 
     while True:
         client, addr = sockObj.accept()
-        data = client.recv(4096)
+        print(addr[0], addr[1])
+        data = client.recv(10)
         with open(document, "r") as index:
             info = index.read()
-            client.send(b"HTTP/1.0 200 OK\r\n\r\n")
             client.send(info.encode("ascii"))
 
-        print(addr[0], addr[1])
-
     client.close()
+
+    def apiHostconn(address, port):
+        sockCli = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        sockCli.connect((address, port))
+   
+        sockCli.send(b"0")
+        data = sockCli.recv(4096)
+        return data.decode("utf-8")

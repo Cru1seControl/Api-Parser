@@ -35,5 +35,11 @@ import json
 **Host document**
 - apiHost("127.0.0.1", 8080, "api-example.json")
 ```
-$ curl http://127.0.0.1:8080/
+$ python3 -c "from api import apiHost; apiHost('127.0.0.1:8080', 'api-example.json')"
+```
+**Retrieve Document**
+- Document = apiHostconn("127.0.0.1:8080")
+- print(apiIndex(Document, "Example", indexing="Email"))
+```
+$ curl 127.0.0.1:8080
 ```

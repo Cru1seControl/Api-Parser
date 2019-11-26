@@ -69,25 +69,29 @@ def apiConv(dictionary, writeout=False, sort=True, indent=4):
         print(apiConverror)
 
 def apiHost(address, document):
-    addr = address.split(":")
+    try:
+        addr = address.split(":")
 
-    sockObj = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    sockObj.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+        sockObj = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        sockObj.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 
-    sockObj.bind((addr[0], int(addr[1])))
-    sockObj.listen(3)
+        sockObj.bind((addr[0], int(addr[1])))
+        sockObj.listen(3)
 
-    while True:
-        client, addr = sockObj.accept()
-        print(addr[0], addr[1])
-        data = client.recv(10)
-        with open(document, "r") as index:
-            info = index.read()
-            client.send(info.encode("ascii"))
+        while True:
+            client, addr = sockObj.accept()
+            print(addr[0], addr[1])
+            data = client.recv(10)
+            with open(document, "r") as index:
+                info = index.read()
+                client.send(info.encode("ascii"))
 
-    client.close()
-
-    def apiHostconn(address):
+        client.close()
+    except Exception as apiHosterror:
+        print(apiHosterror)
+        
+def apiHostconn(address):
+    try:
         addrs = address.split(":")
 
         sockCli = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -96,3 +100,6 @@ def apiHost(address, document):
         sockCli.send(b"0")
         data = sockCli.recv(4096)
         return data.decode("utf-8")
+ 
+    except Exception as apiHostconnerror:
+        print(apiHostconnerror)

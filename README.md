@@ -16,7 +16,7 @@ import json
 
 **Document and key printing**
 - Document = apiDoc("https://blockchain.info/ticker")
-- print(apiKeys(Document))
+- print(apiKeys(Document, stringify=True, sep=", "))
 
 **Index of document**
 - Document = apiDoc("https://blockchain.info/ticker")

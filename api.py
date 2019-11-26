@@ -60,12 +60,14 @@ def apiConv(dictionary, writeout=False, sort=True, indent=4):
     except Exception as apiConverror:
         print(apiConverror)
 
-def apiHost(address, port, document):
+def apiHost(address, document):
+    addr = address.split(":")
+
     sockObj = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     sockObj.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 
-    sockObj.bind((address, port))
-    sockObj.listen(10)
+    sockObj.bind((addr[0], int(addr[1])))
+    sockObj.listen(3)
 
     while True:
         client, addr = sockObj.accept()
@@ -77,10 +79,12 @@ def apiHost(address, port, document):
 
     client.close()
 
-    def apiHostconn(address, port):
+    def apiHostconn(address):
+        addrs = address.split(":")
+
         sockCli = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        sockCli.connect((address, port))
-   
+        sockCli.connect((addrs[0], int(addrs[1])))
+
         sockCli.send(b"0")
         data = sockCli.recv(4096)
         return data.decode("utf-8")

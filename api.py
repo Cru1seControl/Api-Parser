@@ -5,9 +5,17 @@ import json
 __author__ = "Cru1seControl"
 __version__ = 1.0
 
-def apiKeys(obj):
+def apiKeys(obj, stringify=False, sep=None):
     try:
-        return [key for key in obj.keys()]
+
+        if stringify == True and sep:
+            return f"{sep}".join(obj.keys())
+
+        elif stringify == True:
+            return " ".join(obj.keys())
+
+        else:
+            return [key for key in obj.keys()]
 
     except Exception as keyserror:
         print(keyserror)

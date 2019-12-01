@@ -1,9 +1,7 @@
 # Api-Parser
 *Simple API parser written in python*
 
-from api import *
-
-*apiDoc*, *apiFile* & *apiConv* are your base handlers for all operations. The examples below show these functions, make a new Document and then apply one of the other objects such as *apiKeys* or *apiIndex* to the Document. Creating json tables can be done with *apiConv* and then can be exported to a local file or returned as a string.
+*apiDoc*, *apiFile* *apiHostconn* & *apiConv* are your base handlers for all operations. The examples below show these functions, make a new Document and then apply one of the other objects such as *apiKeys* or *apiIndex* to the Document. Creating json tables can be done with *apiConv* and then can be exported to a local file or returned as a string.
 
 # Dependencies
 ```

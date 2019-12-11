@@ -18,11 +18,14 @@ def apiKeys(obj, stringify=False, sep=None):
     except Exception as keyserror:
         print(keyserror)
 
-def apiDoc(url):
+def apiDoc(url, key=None):
     try:
-        req = requests.get(url)
+        if not key:        
+            req = requests.get(url)
+        else:
+            req = requests.get(url, auth=(key))
+            
         api_page = req.content
-
         requested_api = json.loads(api_page)
         return requested_api
 

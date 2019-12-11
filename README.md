@@ -20,6 +20,10 @@ import json
 - Document = apiDoc("https://blockchain.info/ticker")
 - print(apiIndex(Document, "USD", indexing="15m"))
 
+**Document with authentication**
+- Document = apiDoc("https://api.exampledomain.com/", ("", "TOKEN"))
+- print(apiKeys(Document, "Example", indexing="Author"))
+
 **Document file parsing**
 - Document = apiFile("api-example.json")
 - print(apiFile(Document, "Example", indexing="Email"))

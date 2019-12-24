@@ -5,13 +5,15 @@ import json
 __author__ = "Cru1seControl"
 __version__ = 1.2
 
-def apiKeys(obj, stringify=False, sep=None):
+def apiKeys(obj, stringify=False, records=False, sep=None):
     try:
         if stringify == True and sep:
             return f"{sep}".join(obj.keys())
 
         elif stringify == True:
             return " ".join(obj.keys())
+        elif records == True:
+            return json.loads('{"response": {"records": "%s", "objects": "%s"} }' % (len(obj.keys()), [key for key in obj.keys()]))
         else:
             return [key for key in obj.keys()]
 

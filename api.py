@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Api-Parser Documentation\n
+"""Api-Parser\n
 Api-Parser is a simple tool used for the manipulation and
 easy reading of json data returned from an api. Api also has the
 ability to host a light socket server from where json data can be pulled from.

@@ -40,7 +40,7 @@ Basic usage:
         elif stringify == True: #string conversion
             return " ".join(obj.keys())
         elif records == True: #convert keys to dictionary & display with json.loads
-            return json.loads('{"response": {"records": "%s", "objects": "%s"} }' % (len(obj.keys()), [key for key in obj.keys()]))
+            return json.loads('{"response":{ "records": %s, "objects": "%s"} }' % (len(obj.keys()), [key for key in obj.keys()]))
         else:
             return [key for key in obj.keys()]
 
